@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ingredient Inventory</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Ingredient Inventory</h1>
+        <form action="/ingredients" method="post">
+            <div class="form-group">
+                <label for="ingredient_name">Ingredient Name:</label>
+                <input type="text" name="ingredient_name" id="ingredient_name" required>
+            </div>
+            <div class="form-group">
+                <label for="stock">Stock:</label>
+                <input type="number" name="stock" id="stock" required>
+            </div>
+            <input type="submit" value="Add Ingredient">
+        </form>
+
+        <h2>Current Ingredients</h2>
+        <ul>
+            {% for ingredient in ingredients %}
+            <li>
+                {{ ingredient['ingredient_name'] }} - Stock: {{ ingredient['stock'] }}
+                <form action="/update_stock/{{ ingredient['id'] }}" method="post" style="display:inline;">
+                    <input type="number" name="stock" min="0" required>
+                    <button type="submit">Update Stock</button>
+                </form>
+            </li>
+            {% endfor %}
+        </ul>
+        <a href="/">Back to Home</a>
+    </div>
+</body>
+</html>

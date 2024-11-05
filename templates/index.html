@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chocolate House</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to the Chocolate House</h1>
+        <p>Discover our delicious seasonal flavors!</p>
+        <a href="{{ url_for('view_flavors') }}">View Flavors</a>
+        <a href="{{ url_for('ingredients') }}">View Ingredients</a>
+        <a href="{{ url_for('suggestions') }}">Make a Suggestion</a>
+    </div>
+</body>
+</html>

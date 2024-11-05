@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Seasonal Flavor</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Add a Seasonal Flavor</h1>
+        <form action="/new_flavor" method="post">
+            <div class="form-group">
+                <label for="flavor_name">Flavor Name:</label>
+                <input type="text" name="flavor_name" id="flavor_name" required>
+            </div>
+            <div class="form-group">
+                <label for="description">Description:</label>
+                <input type="text" name="description" id="description" required>
+            </div>
+            <div class="form-group">
+                <label for="available_until">Available Until (YYYY-MM-DD):</label>
+                <input type="date" name="available_until" id="available_until" required>
+            </div>
+            <input type="submit" value="Add Flavor">
+        </form>
+        <a href="/">Back to Home</a>
+    </div>
+</body>
+</html>

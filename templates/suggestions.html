@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Flavor Suggestions</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Suggest a Flavor</h1>
+        <form action="/suggestions" method="post">
+            <div class="form-group">
+                <label for="flavor_name">Flavor Name:</label>
+                <input type="text" name="flavor_name" id="flavor_name" required>
+            </div>
+            <div class="form-group">
+                <label for="customer_name">Your Name:</label>
+                <input type="text" name="customer_name" id="customer_name">
+            </div>
+            <div class="form-group">
+                <label for="allergy_info">Allergy Info (if any):</label>
+                <input type="text" name="allergy_info" id="allergy_info">
+            </div>
+            <input type="submit" value="Submit Suggestion">
+        </form>
+
+        <h2>Customer Suggestions</h2>
+        <ul>
+            {% for suggestion in suggestions %}
+            <li>
+                <strong>{{ suggestion['flavor_name'] }}</strong> by {{ suggestion['customer_name'] }} <br>
+                Allergy Info: {{ suggestion['allergy_info'] }}
+            </li>
+            {% endfor %}
+        </ul>
+        <a href="/">Back to Home</a>
+    </div>
+</body>
+</html>

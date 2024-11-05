@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Seasonal Flavors</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Seasonal Flavors</h1>
+        <ul>
+            {% for flavor in flavors %}
+            <li>
+                <strong>{{ flavor['flavor_name'] }}</strong> - {{ flavor['description'] }}
+                (Available until: {{ flavor['available_until'] }})
+            </li>
+            {% endfor %}
+        </ul>
+        <a href="/">Back to Home</a>
+    </div>
+</body>
+</html>
